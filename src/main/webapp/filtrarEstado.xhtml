@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <meta charset="UTF-8"></meta>
+        <link rel="stylesheet" type="text/css" href="css/user.css" />
+
+        <meta http-equiv="Expires" content="0" />
+        <meta http-equiv="Pragma" content="no-cache" />
+
+        <script type="text/javascript">
+              if(history.forward(1)){
+                location.replace( history.forward(1) );
+              }
+            </script>
+        <title>General-Usuario</title>
+        <img style="float: right; margin: 0px 0px 15px 15px;" src="img/usuario.jpg" width="50" />
+        <h3 align="right">
+            <h:outputText value="#{LoginBean.getNombreUsuario()}"/> <br/>
+            <h:outputText value="#{LoginBean.getRolUsuario()}"/><br/>
+            <p:commandButton class="logout" value="Cerrar sesión" action="#{LoginBean.logout}"/><br/>
+            <p:commandButton class="logout" value="Volver" action="#{LoginBean.direccionarPorPerfil}" align="center" />
+        </h3>
+    </h:head>
+
+    <h:body>
+
+        <br/>
+        <br/>
+        <h1>Bienvenido al banco de iniciativas</h1>
+        <h2>Unidad de proyectos</h2>
+        <br/>
+        <br/>
+
+
+        <h:form id="form">
+
+            <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+                <p:outputLabel for="@next" value="Filtrar por estado:" />
+                <p:selectOneMenu id="console" value="#{IniciativaBean.estadoParaFiltrar}" style="width:125px">
+                    <f:selectItem itemLabel="Select One" itemValue="" />
+                    <f:selectItem itemLabel="En espera de revisión" itemValue="En espera de revisión" />
+                    <f:selectItem itemLabel="En revisión" itemValue="En revisión" />
+                    <f:selectItem itemLabel="Proyecto" itemValue="Proyecto" />
+                    <f:selectItem itemLabel="Solucionado" itemValue="Solucionado" />
+                </p:selectOneMenu>
+                <p:commandButton value="Filtrar" action="#{IniciativaBean.getIniciativasEst}" align="center" update="form"/>
+            </h:panelGrid>
+
+            <section>
+
+                <div id="dos">
+                    <a align="center">
+
+                        <p:dataTable class="iniciativas" value="#{IniciativaBean.getIniciativaEst()}" var = "iniciativa" style="margin: 0 auto;"
+                                     rows="6" paginator="true"
+                                     paginatorTemplate="{RowsPerPageDropdown} {CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
+                                     rowsPerPageTemplate="6, 12, 18">
+
+                            <p:column headerText="Id" filterBy="#{iniciativa.id}">
+                                <h:outputText value="#{iniciativa.id}"></h:outputText>
+                            </p:column>
+
+                            <p:column headerText="Nombre" filterBy="#{iniciativa.nombre}">
+                                <h:outputText value="#{iniciativa.nombre}"></h:outputText>
+                            </p:column>
+
+                            <p:column headerText="Descripción" filterBy="#{iniciativa.descripcion}">
+                                <h:outputText value="#{iniciativa.descripcion}"></h:outputText>
+                            </p:column>
+
+                            <p:column headerText="Estado" filterBy="#{iniciativa.estado}">
+                                <h:outputText value="#{iniciativa.estado}"></h:outputText>
+                            </p:column>
+
+                            <p:column headerText="Votos">
+                                <h:outputText value="#{iniciativa.numeroVotos}"></h:outputText>
+                            </p:column>
+
+                            <p:column headerText="Ver">
+                                <h:commandButton id="ver" class="botonImagen" image="img/ojo.png" action="#{IniciativaBean.verIniciativa(iniciativa.id)}"></h:commandButton>
+                            </p:column>
+
+                        </p:dataTable>
+
+                    </a>
+                </div>
+
+            </section>
+
+        </h:form>
+    </h:body>
+</html>

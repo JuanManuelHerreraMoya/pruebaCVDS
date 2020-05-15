@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"      
+      xmlns:h="http://java.sun.com/jsf/html"
+
+      xmlns:p="http://primefaces.org/ui">
+      
+      <h:head>
+      	<meta charset="UTF-8"></meta>
+      	<link rel="stylesheet" type="text/css" href="css/PMO.css"/>
+      	
+      	<meta http-equiv="Expires" content="0" />
+		<meta http-equiv="Pragma" content="no-cache" />
+		
+		<script type="text/javascript">
+		  if(history.forward(1)){
+		    location.replace( history.forward(1) );
+		  }
+		</script>
+      	<title>General-Admin</title>
+
+		  <img style="float: right; margin: 0px 0px 15px 15px;" src="img/usuario.jpg" width="50" />
+		  <h3 align="right">
+			  <h:outputText value="#{LoginBean.getNombreUsuario()}"/> <br/>
+			  <h:outputText value="#{LoginBean.getRolUsuario()}"/><br/>
+			  <p:commandButton class="logout" value="Cerrar sesión" action="#{LoginBean.logout}"/><br/>
+		  </h3>
+
+	</h:head>
+      <h:body>
+		  
+		  <br/>
+		  <br/>
+		  <h1>Bienvenido al banco de iniciativas</h1>
+		  <h2>Unidad de proyectos</h2>
+		  <br/>
+		  <br/>
+
+		  <h:form>
+
+			<section>
+				<div id="uno">
+					<br/><br/><br/>
+					<p:commandButton class="logout" value="Registrar usuarios" action="#{PageBean.page3}" align="center" /><br/><br/>
+					<p:commandButton class="logout" value="Ver usuarios" action="#{PageBean.page4}" align="center" /><br/><br/>
+					<p:commandButton class="logout" value="Informes" action="#{IniciativaBean.iniciativaPorArea}" align="center" /><br/><br/>
+				</div>
+
+				<div id="dos">
+					<a align="center">
+						<p:dataTable class="iniciativas" value="#{IniciativaBean.getIniciativas()}" var = "iniciativa" style="margin: 0 auto;"
+									 rows="6" paginator="true"
+									 paginatorTemplate="{RowsPerPageDropdown} {CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
+									 rowsPerPageTemplate="6, 12, 18">
+
+							<p:column headerText="Id" filterBy="#{iniciativa.id}" >
+								<h:outputText value="#{iniciativa.id}"></h:outputText>
+							</p:column>
+
+							<p:column headerText="Nombre" filterBy="#{iniciativa.nombre}">
+								<h:outputText value="#{iniciativa.nombre}"></h:outputText>
+							</p:column>
+
+							<p:column headerText="Descripción" filterBy="#{iniciativa.descripcion}">
+								<h:outputText value="#{iniciativa.descripcion}"></h:outputText>
+							</p:column>
+
+							<p:column headerText="Estado" filterBy="#{iniciativa.estado}">
+								<h:outputText value="#{iniciativa.estado}"></h:outputText>
+							</p:column>
+
+							<p:column headerText="Votos">
+								<h:outputText value="#{iniciativa.numeroVotos}"></h:outputText>
+							</p:column>
+
+							<p:column headerText="Ver">
+								<h:commandButton id="ver" class="botonImagen" image="img/ojo.png" action="#{IniciativaBean.verIniciativa(iniciativa.id)}"></h:commandButton>
+							</p:column>
+
+							<p:column headerText="Relacionar">
+								<h:commandButton id="relacionar" class="botonImagen" image="img/relacionar.png" action="#{IniciativaBean.relacionarIniciativas(iniciativa.id)}"></h:commandButton>
+							</p:column>
+						</p:dataTable>
+					</a>
+				</div>
+				
+			</section>
+			
+		</h:form>           
+      </h:body>
+</html>

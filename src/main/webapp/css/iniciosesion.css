@@ -1,0 +1,88 @@
+body {
+  background-color:#fffffa;
+}
+
+h1{
+	 color: firebrick;
+	 text-align: center;
+	 font-size:2.5vw;
+	 font-family: "Lato", "Helvetica", Helvetica, sans-serif ,"Century Gothic", Century Gothic, "Times New Roman", Times;
+}
+
+h2{
+	color: firebrick;
+  	font-family: "Lato", "Helvetica", Helvetica, sans-serif ,"Century Gothic", Century Gothic, "Times New Roman", Times;
+  	font-size:1.5vw;
+  	text-align:center;
+	margin: 1vw 1vw 0;
+
+}
+
+h3{
+  	color: grey;
+  	font-family: "Lato", "Helvetica", Helvetica, sans-serif ,"Century Gothic", Century Gothic, "Times New Roman", Times;
+  	font-size:1.3vw;
+  	text-align:center;
+	padding: -2vw;
+	margin: 1vw -2vw 0;
+}
+
+.imgContainer {
+	display = block;
+	text-align: center;
+  	
+}
+
+.container {
+	padding: 3vw;
+  	margin: 1vw;
+	background-color:#e8e8dc;
+	width: 27vw;
+	height: 15vw;
+  	margin-left: auto;
+  	margin-right: auto;
+	border-radius:8px;
+}
+
+.form-control{
+	font-family: Arial; 
+	font-size:1.2vw;
+	height:2.5vw;
+	width: 27vw;
+	margin: 0.5vw 0;
+  	display: inline-block;
+  	border: 1px solid #ccc;
+  	box-sizing: border-box;
+}
+
+.form-group{
+	text-align:left;
+	font-family: "Lato", "Helvetica", Helvetica, sans-serif ,"Century Gothic", Century Gothic, "Times New Roman", Times;
+}
+
+.ui-button {
+	-moz-box-shadow:inset 0px 1px 0px 0px #e1dedf;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #e1dedf;
+	box-shadow:inset 0px 1px 0px 0px #e1dedf;
+	background-color:white;
+	-moz-border-radius:8px;
+	-webkit-border-radius:8px;
+	border-radius:8px;
+	
+	/*Borde del botón*/
+	border:1px solid light-gray;
+	display:inline-block;
+	
+	/*texto del botón*/
+	color:#182b64;
+	font-family:sans-serif;
+	font-size:15px;
+	font-weight:bold;
+
+	/*Tamaño*/
+	padding:0.1vw 0.5vw;
+	text-decoration:none;
+	text-shadow:1px 1px 0px #fae9ed;	
+	
+}
+

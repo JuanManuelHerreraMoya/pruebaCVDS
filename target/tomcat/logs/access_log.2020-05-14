@@ -1,0 +1,13 @@
+0:0:0:0:0:0:0:1 - - [14/May/2020:13:50:52 -0500] "GET / HTTP/1.1" 200 3797 http-bio-8080-exec-1 458
+0:0:0:0:0:0:0:1 - - [14/May/2020:13:50:52 -0500] "GET /css/iniciosesion.css HTTP/1.1" 304 - http-bio-8080-exec-3 181
+0:0:0:0:0:0:0:1 - - [14/May/2020:13:50:52 -0500] "GET /img/inicio.png HTTP/1.1" 304 - http-bio-8080-exec-4 30
+0:0:0:0:0:0:0:1 - - [14/May/2020:13:51:05 -0500] "POST /iniciosesion.xhtml HTTP/1.1" 200 144 http-bio-8080-exec-5 2768
+0:0:0:0:0:0:0:1 - - [14/May/2020:13:51:05 -0500] "GET /faces/Admin.xhtml HTTP/1.1" 200 13763 http-bio-8080-exec-6 645
+0:0:0:0:0:0:0:1 - - [14/May/2020:13:51:05 -0500] "GET /faces/css/PMO.css HTTP/1.1" 304 - http-bio-8080-exec-8 44
+0:0:0:0:0:0:0:1 - - [14/May/2020:13:51:06 -0500] "GET /faces/img/usuario.jpg HTTP/1.1" 304 - http-bio-8080-exec-9 26
+0:0:0:0:0:0:0:1 - - [14/May/2020:13:51:06 -0500] "GET /faces/img/ojo.png HTTP/1.1" 304 - http-bio-8080-exec-10 20
+0:0:0:0:0:0:0:1 - - [14/May/2020:13:51:06 -0500] "GET /faces/img/relacionar.png HTTP/1.1" 304 - http-bio-8080-exec-10 83
+0:0:0:0:0:0:0:1 - - [14/May/2020:13:51:11 -0500] "POST /faces/Admin.xhtml HTTP/1.1" 200 146 http-bio-8080-exec-10 1289
+0:0:0:0:0:0:0:1 - - [14/May/2020:13:51:11 -0500] "GET /faces/informes.html HTTP/1.1" 200 23304 http-bio-8080-exec-3 7
+0:0:0:0:0:0:0:1 - - [14/May/2020:13:55:04 -0500] "GET /faces/informes.html HTTP/1.1" 304 - http-bio-8080-exec-5 4
+0:0:0:0:0:0:0:1 - - [14/May/2020:13:55:05 -0500] "GET /faces/informes.html HTTP/1.1" 304 - http-bio-8080-exec-5 1

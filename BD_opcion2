@@ -1,0 +1,103 @@
+
+-----drop fk
+//alter table tipousuario drop constraint FK_tipousuario;
+
+-- DROP TABLE public.usuario;
+DELETE FROM usuario ;
+-- Drop table
+drop table usuario;
+
+---------------------------------------------------------------------------
+CREATE TABLE usuario (
+	id int ,
+	nombre varchar(120)not null,
+	contrasena int not null,
+	correo varchar(120)not null,
+	tipousuario VARCHAR(19) not null
+);
+
+-- Permissions
+
+--------------------------------------PRIMARIAS----------------------------------------------------------------------------------
+ALTER TABLE usuario ADD CONSTRAINT PK_usuarui PRIMARY KEY (id);
+--------------------------------------FORANEAS-----------------------------------------------------------------------------------
+//ALTER TABLE tipousuario ADD CONSTRAINT FK_tipousuario FOREIGN KEY (id) REFERENCES usuario(id);
+--------------------------------------UNICAS-------------------------------------------------------------------------------------
+ALTER TABLE usuario ADD CONSTRAINT UK_usuario UNIQUE (correo);
+
+
+------------------------------------DISPARADORES---------------------------------------------------------------------------------
+ 
+ CREATE OR REPLACE FUNCTION TG_auto_tipoUsuario() RETURNS TRIGGER AS $TG_auto_tipoUsuario$
+  declare
+  	temp VARCHAR;
+  	ultimo int;
+  BEGIN
+   	SELECT tipousuario INTO temp FROM usuario where id = (count(id)) ;
+   	IF (temp = '1')  THEN new.tipousuario:= 'administrador';
+    ELSIF (temp = '2') THEN new.tipousuario:= 'PMO-ODI';
+    ElSIF (temp = '3') THEN new.tipousuario:= 'proponente-idea';
+    ElSIF (temp = '4') THEN new.tipousuario:= 'usuario de consulta';
+    END IF;
+   RETURN NEW;
+  END;
+$TG_auto_tipoUsuario$ LANGUAGE plpgsql;
+
+CREATE TRIGGER TG_auto_tipoUsuario BEFORE INSERT 
+    ON usuario FOR EACH ROW 
+    EXECUTE PROCEDURE TG_auto_tipoUsuario();
+-------------------------------------------------------------------------------------------------------
+ CREATE OR REPLACE FUNCTION TG_auto_id_tipoUsuario() RETURNS TRIGGER AS $TG_auto_id_tipoUsuario$
+  declare
+  	ultimo int;
+  	temp VARCHAR;
+  BEGIN
+   	SELECT (max(id)+1) INTO ultimo FROM usuario  ;
+    SELECT tipousuario INTO temp FROM usuario  ;
+   	if ultimo is null then 
+   		new.id:= 1;
+	   		IF (temp = '1')  THEN new.tipousuario:= 'administrador';
+	   		end if;
+	    	IF (temp = '2') THEN new.tipousuario:= 'PMO-ODI';
+	    	end if;
+	    	IF (temp = '3') THEN new.tipousuario:= 'proponente-idea';
+	    	end if;
+	    	IF (temp = '4') THEN new.tipousuario:= 'usuario de consulta';
+	    	end if;
+   	else 
+   		new.id:= ultimo ;
+	   		IF (temp = '1')  THEN new.tipousuario:= 'administrador';
+	   		end if;
+	    	IF (temp = '2') THEN new.tipousuario:= 'PMO-ODI';
+	    	end if;
+	    	IF (temp = '3') THEN new.tipousuario:= 'proponente-idea';
+	    	end if;
+	    	IF (temp = '4') THEN new.tipousuario:= 'usuario de consulta';
+	    	end if;
+    END IF;
+    RETURN;
+  END;
+$TG_auto_id_tipoUsuario$ LANGUAGE plpgsql;
+
+CREATE TRIGGER TG_auto_id_tipoUsuario BEFORE INSERT 
+    ON usuario FOR EACH ROW 
+    EXECUTE PROCEDURE TG_auto_id_tipoUsuario();
+ ---------------------------------------------------------------------------------------------  
+ 
+
+--------------------------------------POBLADA-----------------------------------------------------------------------------------
+insert into usuario (nombre,contrasena,correo,tipousuario)values ('juan',123456,'jan@gmail.com','1');
+insert into usuario (nombre,contrasena,correo,tipousuario)values ('david',123456,'jn@gmail.com','2');
+insert into usuario (nombre,contrasena,correo,tipousuario)values ('santi',123457123,'san@gmail.com','3');
+insert into usuario (nombre,contrasena,correo,tipousuario)values ('santi',123451237,'saadasn@gmail.com','4');
+
+
+------------------------------------CONSULTAS------------------------------------------------------------------------------------
+select * from usuario;
+
+declare
+	cuenta int;
+	temp int;
+select count(nombre)into cuenta from usuario ;
+select id into temp from usuario;
+if temp = cuenta then new.tipousuario:= 'usuario de consulta';

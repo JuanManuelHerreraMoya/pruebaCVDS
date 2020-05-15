@@ -1,0 +1,14 @@
+Host
+ec2-52-86-73-86.compute-1.amazonaws.com
+Database
+dpmun5vgqr451
+User
+pzuhlvhzzcwqzc
+Port
+5432
+Password
+2afc1783815c2e45f167b05c67eb03130e774210094fa6920803ada9978b1847
+URI
+postgres://pzuhlvhzzcwqzc:2afc1783815c2e45f167b05c67eb03130e774210094fa6920803ada9978b1847@ec2-52-86-73-86.compute-1.amazonaws.com:5432/dpmun5vgqr451
+Heroku CLI
+heroku pg:psql postgresql-round-67995 --app elcartel

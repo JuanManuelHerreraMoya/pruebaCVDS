@@ -1,0 +1,157 @@
+body {
+  background-color:#fffffa;
+}
+
+head {
+	margin: 0;
+	padding: 0;
+	font-family: Helvetica, Arial, sans-serif;
+	color: #666;
+	background: #f2f2f2;
+	font-size: 1em;
+	line-height: 1.5em;
+}
+
+h1{
+	 color: firebrick;
+	 text-align: center;
+	 font-size:2.5vw;
+	 font-family: "Lato", "Helvetica", Helvetica, sans-serif ,"Century Gothic", Century Gothic, "Times New Roman", Times;
+}
+
+h2{
+	color: firebrick;
+  	font-family: "Lato", "Helvetica", Helvetica, sans-serif ,"Century Gothic", Century Gothic, "Times New Roman", Times;
+  	font-size:1.5vw;
+  	text-align:center;
+	margin: 1vw 1vw 0;
+}
+
+h3{
+	color: grey;
+  	font-family: "Lato", "Helvetica", Helvetica, sans-serif ,"Century Gothic", Century Gothic, "Times New Roman", Times;
+  	font-size:1.0vw;
+  	text-align:right;
+	margin: 1vw 1vw 0;
+}
+
+.logout{
+    text-decoration: none;
+    padding: 0px;
+    font-weight: 600;
+    font-size: 1.0vw;
+    color: #000000;
+    border-radius: 6px;
+    border: 2px solid #ffffff;
+}
+
+p{
+  color: black;
+  font-size: 1.2vw;
+  font-family: "Helvetica", Helvetica, sans-serif ,"Century Gothic", Century Gothic, "Times New Roman", Times;
+}
+
+.iniciativas {
+  font-size:1.2vw;
+  border: 0.2vw solid rgba(255,255,255,10);
+  border-collapse: collapse;
+  width: 80%;
+}
+
+.iniciativas tr:nth-child(even){
+	background-color: #c4c4bc;
+	text-align: center;
+	color: black;
+	height: auto;
+}
+
+.iniciativas tr:nth-child(odd){
+	background-color: #ffffff;
+	text-align: center;
+	color: black;
+	height: auto;
+}
+
+.iniciativas tr:hover {
+	background-color: #e3e3d8;
+	text-align: center;
+	height: auto;
+}
+
+.iniciativas th {
+  padding-top: 25px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color:#ececec;
+  color: #990606;
+  height: auto;
+}
+
+
+.iniciativas th:nth-child(8) {
+	width: 15%;
+	height: auto;
+}
+
+div#uno{
+	float:left;
+	width:150px;
+	height:800px;
+	margin-left:50px;
+}
+div#dos{
+	float:right;
+	width:1000px;
+	height:1000px;
+}
+
+.contenedor{
+ width: 100%;
+ height: auto;
+ margin-top: 10vw;
+ display: text-align:center;
+ margin-rigth: 10%;
+ margin-left: 10%;
+}
+
+.elemento{
+ float: left;
+ width: 18vw;
+ height: 18vw;
+ opacity: 0.85;
+ margin: 1vw;
+ border-radius: 100%;
+
+ -webkit-transition: all .05s ease-in-out;
+ -moz-transition: all .05s ease-in-out;
+ -o-transition: all .05s ease-in-out;
+ transition: all .05s ease-in-out;
+}
+.elemento:hover{
+ border: solid 1vw rgba(255,255,255,.0);
+ margin: 2vw;
+ opacity: 1;
+ background-color: rgba(255,255,255,.20);
+}
+
+.texto{
+  	font-family: "Calibri", "Lato", "Helvetica", Helvetica, sans-serif ,"Century Gothic", Century Gothic, "Times New Roman", Times;
+	font-size: 1.2em;
+	color:black;
+	text-align: center;
+	padding-top:2vw;
+	opacity:0.6;
+	-webkit-transition: padding-top .4s;
+}
+
+.contenedor:hover .icon{
+	-webkit-box-shadow:0px 0px 0px 0px rgba(255,255,255,.0);
+}
+
+.botonImagen{
+  background-color:transparent;
+  background-repeat:no-repeat;
+  height:30px;
+  width:30px;
+  background-position:center;
+}

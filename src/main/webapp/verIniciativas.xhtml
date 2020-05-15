@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <meta charset="UTF-8"></meta>
+    <link rel="stylesheet" type="text/css" href="css/admin.css"/>
+
+    <meta http-equiv="Expires" content="0" />
+    <meta http-equiv="Pragma" content="no-cache" />
+
+    <script type="text/javascript">
+         if(history.forward(1)){
+            location.replace( history.forward(1) );
+          }
+     </script>
+    <title>Admin-Iniciativas</title>
+
+    <img style="float: right; margin: 0px 0px 15px 15px;" src="img/usuario.jpg" width="50" />
+    <h3 align="right">
+        <h:outputText value="#{LoginBean.getNombreUsuario()}"/> <br/>
+        <h:outputText value="#{LoginBean.getRolUsuario()}"/><br/>
+        <p:commandButton class="logout" value="Volver" action="#{LoginBean.direccionarPorPerfil}" align="center" />
+        <p:commandButton class="logout" value="Cerrar sesión" action="#{LoginBean.logout}"/><br/>
+    </h3>
+</h:head>
+
+<h:body>
+    <br/><br/>
+    <h1>Ver iniciativas</h1>
+    <h2>Unidad de proyectos</h2>
+    <br/><br/>
+
+    <h:form id="form">
+
+        <div id="dos">
+            <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+                <h:outputText value="Nombre: " style="font-weight: bold"/>
+                <h:outputText value="#{IniciativaBean.iniciativaConsultadaId.nombre}"/>
+
+                <h:outputText value="Descripción: " style="font-weight: bold"/>
+                <h:outputText value="#{IniciativaBean.iniciativaConsultadaId.descripcion}"/>
+
+                <h:outputText value="Palabras clave: " style="font-weight: bold"/>
+                <h:outputText value="#{IniciativaBean.iniciativaConsultadaId.palabrasClave}"/>
+
+                <h:outputText value="Nombres proponente: " style="font-weight: bold"/>
+                <h:outputText value="#{IniciativaBean.iniciativaConsultadaId.nombreUsuario}"/>
+
+                <h:outputText value="Correo proponente: " style="font-weight: bold"/>
+                <h:outputText value="#{IniciativaBean.iniciativaConsultadaId.correoUsuario}"/>
+
+                <h:outputText value="Estado: "/>
+                <h:outputText value="#{IniciativaBean.iniciativaConsultadaId.estado}"/>
+
+                <h:outputText value="Votos: " style="font-weight: bold"/>
+                <h:outputText value="#{IniciativaBean.iniciativaConsultadaId.numeroVotos}"/>
+
+                <p:inputText value="#{IniciativaBean.comentario}" placeholder="Introduce un comentario"/>
+                <h:commandButton class="comentar" value="Comentar" action="#{IniciativaBean.comentarIniciativa1}"></h:commandButton>
+
+                <h:commandButton id="Votar" class="botonImagen" image="img/like.png" action="#{IniciativaBean.votar}"></h:commandButton>
+            </h:panelGrid>
+
+        </div>
+
+        <div id="tres">
+            <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+                <h:outputText value="Nombre: " style="font-weight: bold"/>
+                <h:outputText value="#{IniciativaBean.iniciativaConsultadaId1.nombre}"/>
+
+                <h:outputText value="Descripción: " style="font-weight: bold"/>
+                <h:outputText value="#{IniciativaBean.iniciativaConsultadaId1.descripcion}"/>
+
+                <h:outputText value="Palabras clave: " style="font-weight: bold"/>
+                <h:outputText value="#{IniciativaBean.iniciativaConsultadaId1.palabrasClave}"/>
+
+                <h:outputText value="Nombres proponente: " style="font-weight: bold"/>
+                <h:outputText value="#{IniciativaBean.iniciativaConsultadaId1.nombreUsuario}"/>
+
+                <h:outputText value="Correo proponente: " style="font-weight: bold"/>
+                <h:outputText value="#{IniciativaBean.iniciativaConsultadaId1.correoUsuario}"/>
+
+                <h:outputText value="Estado: " style="font-weight: bold"/>
+                <h:outputText value="#{IniciativaBean.iniciativaConsultadaId1.estado}"/>
+
+                <h:outputText value="Votos: " style="font-weight: bold"/>
+                <h:outputText value="#{IniciativaBean.iniciativaConsultadaId1.numeroVotos}"/>
+
+                <p:inputText value="#{IniciativaBean.comentario2}" placeholder="Introduce un comentario"/>
+                <h:commandButton class="comentar" value="Comentar" action="#{IniciativaBean.comentarIniciativa2}"></h:commandButton><br/>
+
+            </h:panelGrid>
+        </div>
+    </h:form>
+
+    <p:dataList value="#{IniciativaBean.comentarios}" var="comentario" type="ordered">
+        <f:facet name="header">
+            Comentarios
+        </f:facet>
+        #{comentario.textoComentario}
+    </p:dataList>
+    <p:dataList value="#{IniciativaBean.comentarios1}" var="comentario1" type="ordered">
+        <f:facet name="header">
+            Comentarios de iniciativa relacionada
+        </f:facet>
+        #{comentario1.textoComentario}
+    </p:dataList>
+
+</h:body>
+</html>

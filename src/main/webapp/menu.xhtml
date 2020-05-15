@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"      
+      xmlns:h="http://java.sun.com/jsf/html"
+
+      xmlns:p="http://primefaces.org/ui">
+      
+      <h:head>
+      	<meta charset="UTF-8"></meta>
+      	<link rel="stylesheet" type="text/css" href="css/menu.css" />
+      	<link rel="stylesheet" type="text/css" href="css/efectos.css" />
+      	
+      	
+      	<meta http-equiv="Expires" content="0" />
+		<meta http-equiv="Pragma" content="no-cache" />
+		
+		<script type="text/javascript">
+		  if(history.forward(1)){
+		    location.replace( history.forward(1) );
+		  }
+		</script>
+		
+      	
+      	<title>Menu</title>
+      
+	</h:head>
+      <h:body>
+		  <h:form>
+		  <div id="efecto">
+		  
+			<section>
+				<div class="contenedor">
+					<h:outputText value="#{LoginBean.getNombreUsuario()}"/>
+					<h:outputText value="#{LoginBean.getRolUsuario()}"/>
+					<div class="elemento" id="uno">
+						<p:commandLink action="#{LoginBean.redirectTo('RPerfiles.xhtml')}" update="@form">
+							<img class="icon" src="img/usu.png"/>
+						</p:commandLink>
+						<b><p class="texto">Registrar perfiles</p></b>
+					</div>
+			
+					<div class="elemento" id="dos">
+						<p:commandLink action="#{LoginBean.redirectTo('VIniciativa.xhtml')}" update="@form">
+							<img class="icon" src="img/buscar.png"/>
+						</p:commandLink>
+						<b><p class="texto">Ver iniciativas</p></b>
+					</div>
+					
+					<div class="elemento" id="tres">
+						<p:commandLink action="#{LoginBean.logout}" update="@form">
+							<img class="icon" src="img/icon1.png"/>
+						</p:commandLink>
+						<b><p class="texto">Salir</p></b>
+					</div>
+				</div>
+			</section>
+			
+		</div>
+		</h:form>           
+      </h:body>
+</html>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="persistence.mybatisimpl.mappers.ComentarioMapper">
+
+    <select parameterType="map" id="getComentarios" resultMap="ComentarioResult">
+        SELECT
+        c.textoComentario,
+        c.idIniciativa,
+        c.idUsuario
+        FROM comentario as c
+        WHERE #{idIniciativa}=c.idiniciativa;
+    </select>
+
+    <insert id="insertComentario">
+        insert into comentario (textoComentario, idIniciativa, idUsuario) values (#{textoComentario},#{idIniciativa},#{idUsuario})
+    </insert>
+
+    <resultMap type='Comentario' id='ComentarioResult'>
+        <id property='id' column='id'/>
+        <result property='textoComentario' column='textoComentario'/>
+        <result property='idIniciativa' column='idIniciativa'/>
+        <result property='idUsuario' column='idUsuario'/>
+    </resultMap>
+
+
+</mapper>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <meta charset="UTF-8"></meta>
+    <link rel="stylesheet" type="text/css" href="css/pro.css" />
+
+    <meta http-equiv="Expires" content="0" />
+    <meta http-equiv="Pragma" content="no-cache" />
+
+    <script type="text/javascript">
+		  if(history.forward(1)){
+		    location.replace( history.forward(1) );
+		  }
+		</script>
+    <title>Mis Iniciativas</title>
+
+    <img style="float: right; margin: 0px 0px 15px 15px;" src="img/usuario.jpg" width="50" />
+    <h3 align="right">
+        <h:outputText value="#{LoginBean.getNombreUsuario()}"/> <br/>
+        <h:outputText value="#{LoginBean.getRolUsuario()}"/><br/>
+        <p:commandButton class="logout" value="Volver" action="#{PageBean.page02}"/>
+        <p:commandButton class="logout" value="Cerrar sesión" action="#{LoginBean.logout}"/><br/>
+    </h3>
+
+</h:head>
+
+<h:body>
+        <br/><br/>
+        <h1>Mis iniciativas</h1>
+        <h2>Unidad de proyectos</h2>
+        <br/><br/>
+
+        <h:form>
+
+            <p:dataScroller value="#{IniciativaBean.getMisIniciativas()}" var="iniciativa" chunkSize="5">
+                <h:panelGrid columns="1" style="width:40%" styleClass="showcase-text-align-center">
+                    <p:outputPanel>
+                        <h:panelGrid columns="2" cellpadding="5">
+                            <h:outputText class="texto" value="Id:" style="font-weight: bold"/>
+                            <h:outputText class="texto" value="#{iniciativa.id}"/>
+
+                            <h:outputText value="Nombre:" style="font-weight: bold" />
+                            <h:outputText value="#{iniciativa.nombre}"/>
+
+                            <h:outputText value="Descripción:" style="font-weight: bold" />
+                            <h:outputText value="#{iniciativa.descripcion}"/>
+
+                            <h:outputText value="Estado:" style="font-weight: bold"/>
+                            <h:outputText value="#{iniciativa.estado}"/>
+
+                            <h:outputText value="Votos:" style="font-weight: bold"/>
+                            <h:outputText value="#{iniciativa.numeroVotos}"/>
+
+                            <h:commandButton class="logout" value="Ver" id="ver" action="#{IniciativaBean.verIniciativa(iniciativa.id)}"/>
+                            <h:commandButton class="logout" value="Modificar" id="modificar" action="#{IniciativaBean.modificar(iniciativa.id)}"/><br/><br/><br/>
+
+                        </h:panelGrid>
+                    </p:outputPanel>
+                </h:panelGrid>
+            </p:dataScroller>
+        </h:form>
+    </h:body>
+</html>

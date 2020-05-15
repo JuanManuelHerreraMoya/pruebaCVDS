@@ -1,0 +1,87 @@
+html {
+	height:100%;
+	width:100%;
+}
+
+*{
+	margin: 0px;
+    padding: 0px;
+}
+
+#header{
+	text-align: center;
+	font-size: 2.5em;
+	color:#9a9a9a;
+}
+
+section{
+	width: 90%;
+	height: auto;	
+}
+
+.contenedor{
+ width: 100%;
+ height: auto;
+ margin-top: 10vw;
+ display: text-align:center;
+ margin-rigth: 10%;
+ margin-left: 10%;
+}
+
+.elemento{
+ float: left;
+ width: 18vw;
+ height: 18vw;
+ opacity: 0.85;
+ margin: 1vw;
+ border-radius: 100%;
+
+ -webkit-transition: all .05s ease-in-out;
+ -moz-transition: all .05s ease-in-out;
+ -o-transition: all .05s ease-in-out;
+ transition: all .05s ease-in-out;
+}
+.elemento:hover{
+ border: solid 1vw rgba(255,255,255,.0);
+ margin: 2vw;
+ opacity: 1;
+ background-color: rgba(255,255,255,.20);
+}
+
+.icon{
+	display: text-align:center;
+	margin:2.1vw auto;
+	background-color: rgba(255,255,255,.40);
+	opacity: 0.80;
+	width:8vw;
+	padding:3vw;
+	margin-left: 11%;
+	-webkit-border-radius: 50%;
+	-webkit-box-shadow: 0px 0px 0px 30px rgba(255,255,255,0);
+	-webkit-transition:box-shadow .4s;
+}
+.texto{
+  	font-family: "Calibri", "Lato", "Helvetica", Helvetica, sans-serif ,"Century Gothic", Century Gothic, "Times New Roman", Times;
+	font-size: 1.2em;
+	color:black;
+	text-align: center;
+	padding-top:2vw;
+	opacity:0.6;
+	-webkit-transition: padding-top .4s;
+}
+
+.contenedor:hover .icon{
+	-webkit-box-shadow:0px 0px 0px 0px rgba(255,255,255,.0);
+}
+
+#uno{
+	background-color:#b22222;
+}
+
+#dos{
+	background-color:#b22222;
+}
+
+#tres{
+	background-color:#b22222;
+}

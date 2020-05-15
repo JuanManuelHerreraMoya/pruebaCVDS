@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="persistence.mybatisimpl.mappers.UsuarioMapper">
+
+
+
+    <select parameterType="map" id="getUsuario" resultMap="UserResult">
+        SELECT
+        u.id,
+        u.nombre,
+        u.correo,
+        u.contrasena,
+        u.tipouser,
+        u.dependencia
+        FROM
+        usuario as u WHERE u.correo=#{correoUser}
+    </select>
+
+    <select parameterType="map" id="getUsuarios" resultMap="UserResult">
+        SELECT
+        u.id,
+        u.nombre,
+        u.correo,
+        u.contrasena,
+        u.tipouser,
+        u.dependencia
+        FROM
+        usuario as u
+    </select>
+
+    <insert id="insertUsuario">
+        insert into usuario(nombre,correo,contrasena,tipoUser,dependencia) values (#{nombre},#{correo},#{contrasena},#{tipoUser}, #{dependencia})
+    </insert>
+
+    <update id="updateRolUsuario">
+        update usuario set tipoUser = #{tipouser} where id= #{id};
+    </update>
+    
+    <delete id="deleteAll">
+        delete from usuario
+    </delete>
+
+    <resultMap type='Usuario' id='UserResult'>
+        <id property='id' column='id'/>
+        <result property='nombre' column='nombre'/>
+        <result property='correo' column='correo'/>
+        <result property='contrasena' column='contrasena'/>
+        <result property='tipoUser' column='tipoUser'/>
+        <result property='dependencia' column='dependencia'/>
+    </resultMap>
+
+
+</mapper>

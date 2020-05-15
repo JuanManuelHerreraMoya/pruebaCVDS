@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"      
+      xmlns:h="http://java.sun.com/jsf/html"
+
+      xmlns:p="http://primefaces.org/ui">
+	
+	<h:head>
+		<link rel="stylesheet" type="text/css" href="css/iniciosesion.css" />
+		
+		<meta http-equiv="Expires" content="0" />
+		<meta http-equiv="Pragma" content="no-cache" />
+		
+		<script type="text/javascript">
+		  if(history.forward(1)){
+		    location.replace( history.forward(1) );
+		  }
+		</script>
+		
+		<title>Iniciar Sesi&#243;n</title>
+    
+	</h:head>
+    
+    <h:body>
+
+		<f:event type="preRenderView" listener="#{LoginBean.isLogged}"/>
+		<div class="imgContainer">
+    		 <img src="img/inicio.png" alt="inicio" class="inicio"/>
+  		</div>
+
+		<h1>UNIDAD DE PROYECTOS</h1>
+		<h2>Banco de Iniciativas</h2>
+		
+        <h:form id="iniciosesion_form">
+            	<div style="text-align: center">
+            		
+            		<h3>BIENVENIDO</h3>
+  
+	                <div class="container" >
+		                <div class="form-group">
+		    				<label for="correo"><b>Usuario</b></label><br/>
+		    				<p:inputText id ="correo" type="text" name="correo" placeholder="Enter Email" class="form-control" 
+		    				value="#{LoginBean.userName}" required="true" requiredMessage="Please enter your Email" />
+						</div> 
+		            
+		            	<br/>
+		            	
+			            <div class="form-group">
+			            	<label for="passwd"><b>Contraseña</b></label><br/>
+			    			<p:inputText id ="password" type="password" name="passwd"  placeholder="Enter password" class="form-control" 
+			    			value="#{LoginBean.password}" required="true" requiredMessage="Please enter your Password"/>
+						</div>
+						
+						<br/>
+						
+						<h:panelGrid cellpadding="10" style="margin: auto;" >
+							<p:commandButton value="Ingresar" action="#{LoginBean.login}" update="iniciosesion_form"/>
+						</h:panelGrid>
+
+					</div>
+				
+				</div>
+			
+
+		</h:form>
+
+    </h:body>
+    
+</html>

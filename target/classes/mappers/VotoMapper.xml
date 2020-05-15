@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="persistence.mybatisimpl.mappers.VotoMapper">
+
+    <select parameterType="map" id="getVoto" resultMap="VotoResult">
+        SELECT
+        v.idusuario,
+        v.idiniciativa
+        FROM
+        voto as v WHERE v.idusuario=#{idUsuario} and v.idiniciativa=#{idIniciativa};
+    </select>
+
+    <insert id="insertVoto">
+        insert into voto (idusuario, idiniciativa) values (#{idUsuario},#{idIniciativa});
+    </insert>
+
+    <delete id="deleteVoto">
+        delete from voto where idusuario=#{idUsuario} and idiniciativa=#{idIniciativa};
+    </delete>
+
+    <resultMap type='Voto' id='VotoResult'>
+        <result property='idUsuario' column='idusuario'/>
+        <result property='idIniciativa' column='idiniciativa'/>
+    </resultMap>
+
+
+</mapper>
